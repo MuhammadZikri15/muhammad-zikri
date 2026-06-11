@@ -384,7 +384,7 @@ ${message}`;
             .pp-contact-form button {
               padding: 14px;
               font-size: 14px;
-              border-radius: 12px;
+              border-radius: 30px;
             }
           }
 
