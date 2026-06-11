@@ -25,13 +25,15 @@ function Hero() {
           }
 
           .pp-hero {
-            --hero-photo-bottom: 27px;
+            --hero-inner-inset: clamp(18px, 1.7vw, 24px);
+            --hero-photo-bottom: var(--hero-inner-inset);
             --hero-photo-left: 50%;
             --hero-photo-width: 72%;
 
             width: 100%;
             min-height: 100vh;
             min-height: 100svh;
+            min-height: 100dvh;
             padding: calc(var(--nav-height, 84px) + 44px) var(--container-x, 8%) 72px;
             background: #ffffff;
             color: #000000;
@@ -65,6 +67,7 @@ function Hero() {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            justify-content: flex-start;
             gap: 8px;
             margin-bottom: 26px;
             width: 100%;
@@ -87,6 +90,7 @@ function Hero() {
             letter-spacing: clamp(-2px, -0.12vw, -1px);
             opacity: 1;
             overflow-wrap: normal;
+            white-space: nowrap;
           }
 
           .pp-hero-name-wrapper {
@@ -99,6 +103,7 @@ function Hero() {
           .pp-hero-name,
           .pp-hero-name span {
             display: block;
+            width: 100%;
             max-width: 100%;
             color: #000000;
             -webkit-text-fill-color: #000000;
@@ -224,6 +229,7 @@ function Hero() {
             aspect-ratio: 4.4 / 5.1;
             height: auto;
             overflow: visible;
+            flex: 0 0 auto;
           }
 
           .pp-hero-frame-back {
@@ -245,7 +251,7 @@ function Hero() {
 
           .pp-hero-frame-inner {
             position: absolute;
-            inset: clamp(18px, 1.7vw, 24px);
+            inset: var(--hero-inner-inset);
             border: clamp(2px, 0.2vw, 3px) solid #000000;
             z-index: 5;
             pointer-events: none;
@@ -255,20 +261,26 @@ function Hero() {
             position: absolute;
             left: var(--hero-photo-left);
             bottom: var(--hero-photo-bottom);
-            translate: -50% 0;
+            transform: translateX(-50%);
             width: var(--hero-photo-width);
+            max-width: calc(100% - var(--hero-inner-inset) - var(--hero-inner-inset));
+            max-height: calc(100% - var(--hero-inner-inset) - var(--hero-inner-inset));
             height: auto;
             object-fit: contain;
             object-position: bottom center;
+            display: block;
             z-index: 4;
             transform-origin: bottom center;
             filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.14));
+            user-select: none;
+            -webkit-user-drag: none;
           }
 
           @media (max-width: 1280px) {
             .pp-hero {
               grid-template-columns: minmax(0, 1fr) minmax(310px, 440px);
               gap: 40px;
+              --hero-photo-width: 73%;
             }
 
             .pp-hero-content {
@@ -301,7 +313,7 @@ function Hero() {
               gap: 34px;
               padding-left: var(--container-x, 6%);
               padding-right: var(--container-x, 6%);
-              --hero-photo-width: 73%;
+              --hero-photo-width: 74%;
             }
 
             .pp-hero-content {
@@ -327,7 +339,6 @@ function Hero() {
             }
           }
 
-          /* TABLET & MOBILE */
           @media (max-width: 992px) {
             .pp-hero {
               min-height: auto;
@@ -338,7 +349,8 @@ function Hero() {
               overflow-x: hidden;
               overflow-y: visible;
 
-              --hero-photo-bottom: 16px;
+              --hero-inner-inset: 18px;
+              --hero-photo-bottom: var(--hero-inner-inset);
               --hero-photo-left: 50%;
               --hero-photo-width: 75%;
             }
@@ -356,7 +368,7 @@ function Hero() {
             }
 
             .pp-hero-image-wrapper {
-              width: clamp(285px, 64vw, 360px);
+              width: clamp(310px, 78vw, 420px);
             }
 
             .pp-hero-content {
@@ -367,11 +379,35 @@ function Hero() {
             }
 
             .pp-hero-heading {
+              flex-direction: column;
               align-items: center;
+              justify-content: center;
+              gap: 8px;
+              white-space: normal;
+            }
+
+            .pp-hero-title-top {
+              display: block;
+              width: 100%;
+              max-width: 100%;
+              text-align: center;
+              font-size: clamp(36px, 10vw, 54px);
+              white-space: nowrap;
+            }
+
+            .pp-hero-name-wrapper {
+              display: block;
+              width: 100%;
+              max-width: 100%;
             }
 
             .pp-hero-name,
             .pp-hero-name span {
+              display: block;
+              width: 100%;
+              max-width: 100%;
+              font-size: clamp(38px, 10vw, 56px);
+              line-height: 1.08;
               white-space: normal;
               text-align: center;
             }
@@ -394,8 +430,9 @@ function Hero() {
               padding-bottom: 56px;
               gap: 30px;
 
-              --hero-photo-bottom: 16px;
-              --hero-photo-width: 75%;
+              --hero-inner-inset: 18px;
+              --hero-photo-bottom: var(--hero-inner-inset);
+              --hero-photo-width: 76%;
             }
 
             .pp-hero-subtitle {
@@ -423,7 +460,7 @@ function Hero() {
             }
 
             .pp-hero-image-wrapper {
-              width: clamp(280px, 72vw, 330px);
+              width: clamp(300px, 84vw, 380px);
             }
 
             .pp-hero-frame-back {
@@ -436,7 +473,6 @@ function Hero() {
             }
 
             .pp-hero-frame-inner {
-              inset: 18px;
               border-width: 2px;
             }
           }
@@ -449,8 +485,9 @@ function Hero() {
               padding-bottom: 50px;
               gap: 26px;
 
-              --hero-photo-bottom: 16px;
-              --hero-photo-width: 76%;
+              --hero-inner-inset: 16px;
+              --hero-photo-bottom: var(--hero-inner-inset);
+              --hero-photo-width: 77%;
             }
 
             .pp-hero-heading {
@@ -491,7 +528,7 @@ function Hero() {
             }
 
             .pp-hero-image-wrapper {
-              width: clamp(270px, 76vw, 315px);
+              width: clamp(290px, 86vw, 360px);
             }
 
             .pp-hero-frame-back {
@@ -504,23 +541,22 @@ function Hero() {
             }
 
             .pp-hero-frame-inner {
-              inset: 16px;
               border-width: 2px;
             }
           }
 
-          /* KHUSUS IPHONE KECIL */
           @media (max-width: 430px) {
             .pp-hero {
               padding-top: calc(var(--nav-height, 74px) + 18px);
               gap: 24px;
 
-              --hero-photo-bottom: 15px;
-              --hero-photo-width: 76%;
+              --hero-inner-inset: 15px;
+              --hero-photo-bottom: var(--hero-inner-inset);
+              --hero-photo-width: 77%;
             }
 
             .pp-hero-image-wrapper {
-              width: clamp(268px, 78vw, 305px);
+              width: clamp(286px, 86vw, 350px);
             }
           }
 
@@ -529,8 +565,9 @@ function Hero() {
               padding-top: calc(var(--nav-height, 74px) + 16px);
               gap: 22px;
 
-              --hero-photo-bottom: 15px;
-              --hero-photo-width: 76%;
+              --hero-inner-inset: 15px;
+              --hero-photo-bottom: var(--hero-inner-inset);
+              --hero-photo-width: 77%;
             }
 
             .pp-hero-subtitle {
@@ -555,7 +592,7 @@ function Hero() {
             }
 
             .pp-hero-image-wrapper {
-              width: clamp(250px, 76vw, 288px);
+              width: clamp(270px, 85vw, 330px);
             }
 
             .pp-hero-btn {
@@ -566,8 +603,9 @@ function Hero() {
 
           @media (max-width: 340px) {
             .pp-hero {
-              --hero-photo-bottom: 14px;
-              --hero-photo-width: 76%;
+              --hero-inner-inset: 14px;
+              --hero-photo-bottom: var(--hero-inner-inset);
+              --hero-photo-width: 77%;
             }
 
             .pp-hero-title-top {
@@ -669,12 +707,10 @@ function Hero() {
             <span className="pp-hero-frame-main"></span>
             <span className="pp-hero-frame-inner"></span>
 
-            <motion.img
+            <img
               src={heroImage}
               alt="Muhammad Zikri"
               className="pp-hero-photo"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.35 }}
             />
           </div>
         </div>
