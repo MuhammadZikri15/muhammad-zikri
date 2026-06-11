@@ -56,7 +56,7 @@ function Skill() {
         fill="#1ABCFE"
       />
       <path
-        d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z"
+        d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.2533 0 47.5Z"
         fill="#0ACF83"
       />
       <path
@@ -147,45 +147,64 @@ function Skill() {
     </svg>
   );
 
-  const skills = [
+  const skillList = [
+    "(Digital) Product Design",
+    "User Experience Design",
+    "User Testing",
+    "User Interface Design",
+    "User Research",
+    "Design System Building",
+  ];
+
+  const tools = [
     {
       name: "Microsoft Office",
+      description: "Dokumen & Presentasi",
       icon: <MicrosoftOfficeIcon />,
     },
     {
       name: "Microsoft Excel",
+      description: "Data & Spreadsheet",
       icon: <ExcelIcon />,
     },
     {
       name: "Figma",
+      description: "UI/UX Design & Prototyping",
       icon: <FigmaIcon />,
     },
     {
       name: "Laravel",
+      description: "Web Framework",
       icon: "https://cdn.simpleicons.org/laravel/FF2D20",
     },
     {
       name: "Flutter",
+      description: "Mobile App Development",
       icon: <FlutterIcon />,
     },
     {
       name: "Dart",
+      description: "Mobile Programming",
       icon: <DartIcon />,
     },
     {
       name: "HTML",
+      description: "Website Structure",
       icon: <HtmlIcon />,
     },
     {
       name: "CSS",
+      description: "Website Styling",
       icon: <CssIcon />,
     },
     {
       name: "MySQL",
+      description: "Database Management",
       icon: "https://cdn.simpleicons.org/mysql/4479A1",
     },
     {
       name: "phpMyAdmin",
+      description: "Database Dashboard",
       icon: "https://cdn.simpleicons.org/phpmyadmin/6C78AF",
     },
   ];
@@ -193,7 +212,7 @@ function Skill() {
   return (
     <motion.section
       id="skills"
-      className="skills mz-skills-section"
+      className="pp-skill"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: false, amount: 0.15 }}
@@ -201,229 +220,560 @@ function Skill() {
     >
       <style>
         {`
-          .mz-skills-section {
+          .pp-skill,
+          .pp-skill * {
+            box-sizing: border-box;
+          }
+
+          .pp-skill {
             width: 100%;
-            overflow: hidden;
+            overflow: visible;
+            background: #ffffff !important;
+            color: #000000 !important;
+            padding: 70px var(--container-x, 8%);
+            scroll-margin-top: calc(var(--nav-height, 84px) + 18px);
           }
 
-          .mz-skills-section .section-title {
+          .pp-skill-wrapper {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+          }
+
+          .pp-skill-title {
+            width: 100%;
             text-align: left;
-            margin-bottom: 40px;
+            margin-bottom: 38px;
           }
 
-          .mz-skills-section .section-title h2 {
+          .pp-skill-title h2 {
             display: inline-block;
-            color: #ffffff;
-            border-bottom: 4px solid #10b981;
+            color: #000000 !important;
+            border-bottom: 4px solid #f59e0b;
             padding-bottom: 10px;
             margin: 0;
-            font-size: 28px;
+            font-size: 30px;
+            font-weight: 750;
             line-height: 1.2;
+            letter-spacing: -0.5px;
           }
 
-          .mz-skill-grid {
+          .pp-skill-main {
+            width: 100%;
+            margin-bottom: 62px;
+          }
+
+          .pp-skill-main-grid {
+            width: 100%;
             display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
             align-items: stretch;
           }
 
-          .mz-skill-card {
-            min-width: 0;
-            min-height: 150px;
-            padding: 24px 16px;
-            background: #111c2d;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 20px;
+          .pp-skill-main-card {
+            position: relative;
+            width: 100%;
+            min-height: 92px;
+            padding: 22px 24px;
+            border: 2px solid #000000;
+            border-radius: 18px;
+            color: #000000;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 14px;
             text-align: center;
+            box-shadow: 7px 7px 0 #000000;
             transition: all 0.3s ease;
+            overflow: hidden;
           }
 
-          .mz-skill-card:hover {
-            border-color: #10b981;
-            box-shadow: 0 0 28px rgba(16, 185, 129, 0.12);
+          .pp-skill-main-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 11px 11px 0 #000000;
           }
 
-          .mz-skill-icon {
-            width: 54px;
-            height: 54px;
+          .pp-skill-main-card h3 {
+            margin: 0;
+            color: #000000;
+            font-size: clamp(14px, 1.25vw, 16px);
+            font-weight: 700;
+            line-height: 1.45;
+            overflow-wrap: anywhere;
+          }
+
+          .pp-skill-main-card:nth-child(1),
+          .pp-skill-main-card:nth-child(5) {
+            background: #f3c4a8;
+          }
+
+          .pp-skill-main-card:nth-child(2),
+          .pp-skill-main-card:nth-child(4) {
+            background: #dca733;
+          }
+
+          .pp-skill-main-card:nth-child(3),
+          .pp-skill-main-card:nth-child(6) {
+            background: #dfd0b7;
+          }
+
+          .pp-tools-main {
+            width: 100%;
+            position: relative;
+          }
+
+          .pp-tools-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            column-gap: 28px;
+            row-gap: 30px;
+            align-items: start;
+          }
+
+          .pp-tool-item {
+            min-width: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+            text-align: left;
+            color: #000000;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            transition: transform 0.3s ease;
+          }
+
+          .pp-tool-item:hover {
+            transform: translateY(-4px);
+          }
+
+          .pp-tool-icon {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            border-radius: 16px;
+            border: 2px solid #000000;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            box-shadow: 4px 4px 0 #000000;
+            transition: all 0.3s ease;
           }
 
-          .mz-skill-icon svg,
-          .mz-skill-icon img {
-            width: 46px;
-            height: 46px;
+          .pp-tool-item:hover .pp-tool-icon {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 #000000;
+          }
+
+          .pp-tool-item:nth-child(3n + 1) .pp-tool-icon {
+            background: #f3c4a8;
+          }
+
+          .pp-tool-item:nth-child(3n + 2) .pp-tool-icon {
+            background: #dca733;
+          }
+
+          .pp-tool-item:nth-child(3n) .pp-tool-icon {
+            background: #dfd0b7;
+          }
+
+          .pp-tool-icon svg,
+          .pp-tool-icon img {
+            width: 32px;
+            height: 32px;
             object-fit: contain;
             display: block;
           }
 
-          .mz-skill-card h3 {
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 700;
+          .pp-tool-info {
+            min-width: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+          }
+
+          .pp-tool-info h3 {
+            color: #000000;
+            font-size: clamp(15px, 1.2vw, 17px);
+            font-weight: 720;
+            line-height: 1.25;
+            text-align: left;
+            margin: 0;
+            max-width: 100%;
+            overflow-wrap: anywhere;
+          }
+
+          .pp-tool-info p {
+            color: rgba(0, 0, 0, 0.72);
+            font-size: clamp(12px, 1vw, 13.5px);
+            font-weight: 650;
             line-height: 1.35;
-            text-align: center;
+            text-align: left;
             margin: 0;
             max-width: 100%;
             overflow-wrap: anywhere;
           }
 
           @media (max-width: 1200px) {
-            .mz-skill-grid {
-              grid-template-columns: repeat(4, minmax(0, 1fr));
-              gap: 20px;
+            .pp-skill-main-grid,
+            .pp-tools-grid {
+              gap: 22px;
+            }
+
+            .pp-tools-grid {
+              row-gap: 28px;
             }
           }
 
           @media (max-width: 992px) {
-            .mz-skills-section .section-title {
-              text-align: center;
+            .pp-skill {
+              padding: 64px var(--container-x, 6%);
             }
 
-            .mz-skill-grid {
-              grid-template-columns: repeat(3, minmax(0, 1fr));
-              gap: 18px;
+            .pp-skill-main-grid,
+            .pp-tools-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .mz-skill-card {
-              min-height: 140px;
+            .pp-skill-main {
+              margin-bottom: 54px;
             }
           }
 
           @media (max-width: 768px) {
-            .mz-skill-grid {
+            .pp-skill {
+              padding: 56px var(--container-x, 5%);
+            }
+
+            .pp-skill-title {
+              margin-bottom: 28px;
+            }
+
+            .pp-skill-title h2 {
+              font-size: 28px;
+              font-weight: 750;
+            }
+
+            .pp-skill-main {
+              margin-bottom: 46px;
+            }
+
+            .pp-skill-main-grid {
               grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 14px;
+            }
+
+            .pp-skill-main-card {
+              min-height: 84px;
+              padding: 17px 14px;
+              border-radius: 14px;
+              box-shadow: 4px 4px 0 #000000;
+            }
+
+            .pp-skill-main-card h3 {
+              font-size: 14px;
+              font-weight: 700;
+              line-height: 1.35;
+            }
+
+            .pp-tools-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              column-gap: 18px;
+              row-gap: 24px;
+            }
+
+            .pp-tool-item {
+              align-items: center;
               gap: 12px;
             }
 
-            .mz-skill-card {
-              min-height: 112px;
-              padding: 16px 8px;
-              border-radius: 16px;
-              gap: 10px;
+            .pp-tool-icon {
+              width: 52px;
+              height: 52px;
+              min-width: 52px;
+              border-radius: 14px;
+              box-shadow: 3px 3px 0 #000000;
             }
 
-            .mz-skill-icon {
-              width: 38px;
-              height: 38px;
+            .pp-tool-icon svg,
+            .pp-tool-icon img {
+              width: 28px;
+              height: 28px;
             }
 
-            .mz-skill-icon svg,
-            .mz-skill-icon img {
-              width: 30px;
-              height: 30px;
+            .pp-tool-info h3 {
+              font-size: 14px;
+              font-weight: 720;
             }
 
-            .mz-skill-card h3 {
-              font-size: 11px;
+            .pp-tool-info p {
+              font-size: 11.5px;
+              font-weight: 650;
               line-height: 1.3;
             }
           }
 
-          @media (max-width: 480px) {
-            .mz-skill-grid {
+          @media (max-width: 560px) {
+            .pp-skill {
+              padding-top: 46px;
+              padding-bottom: 46px;
+            }
+
+            .pp-skill-title {
+              margin-bottom: 24px;
+            }
+
+            .pp-skill-title h2 {
+              font-size: 26px;
+              font-weight: 750;
+            }
+
+            .pp-skill-main {
+              margin-bottom: 42px;
+            }
+
+            .pp-skill-main-grid {
               grid-template-columns: repeat(2, minmax(0, 1fr));
-              gap: 10px;
+              gap: 12px;
             }
 
-            .mz-skill-card {
-              min-height: 100px;
-              padding: 12px 6px;
-              border-radius: 14px;
-              gap: 8px;
+            .pp-skill-main-card {
+              min-height: 78px;
+              padding: 15px 12px;
             }
 
-            .mz-skill-icon {
-              width: 34px;
-              height: 34px;
+            .pp-skill-main-card h3 {
+              font-size: 13px;
+              font-weight: 700;
             }
 
-            .mz-skill-icon svg,
-            .mz-skill-icon img {
-              width: 25px;
-              height: 25px;
+            .pp-tools-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              column-gap: 14px;
+              row-gap: 22px;
             }
 
-            .mz-skill-card h3 {
-              font-size: 9.8px;
+            .pp-tool-item {
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: flex-start;
+              gap: 12px;
+            }
+
+            .pp-tool-icon {
+              width: 48px;
+              height: 48px;
+              min-width: 48px;
+            }
+
+            .pp-tool-icon svg,
+            .pp-tool-icon img {
+              width: 26px;
+              height: 26px;
+            }
+
+            .pp-tool-info h3 {
+              font-size: 13.5px;
+              font-weight: 720;
+            }
+
+            .pp-tool-info p {
+              font-size: 11.5px;
+              font-weight: 650;
+              line-height: 1.3;
             }
           }
 
-          @media (max-width: 360px) {
-            .mz-skill-grid {
-              gap: 7px;
+          @media (max-width: 430px) {
+            .pp-skill {
+              padding-top: 42px;
+              padding-bottom: 42px;
             }
 
-            .mz-skill-card {
-              min-height: 92px;
-              padding: 10px 4px;
+            .pp-skill-main {
+              margin-bottom: 38px;
             }
 
-            .mz-skill-icon {
-              width: 30px;
-              height: 30px;
+            .pp-skill-main-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 11px;
             }
 
-            .mz-skill-icon svg,
-            .mz-skill-icon img {
-              width: 21px;
-              height: 21px;
+            .pp-skill-main-card {
+              min-height: 74px;
+              padding: 14px 10px;
+              border-radius: 13px;
             }
 
-            .mz-skill-card h3 {
-              font-size: 8.5px;
+            .pp-skill-main-card h3 {
+              font-size: 12.5px;
+              font-weight: 700;
+              line-height: 1.3;
+            }
+
+            .pp-tools-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              column-gap: 12px;
+              row-gap: 20px;
+            }
+
+            .pp-tool-icon {
+              width: 44px;
+              height: 44px;
+              min-width: 44px;
+              border-radius: 12px;
+            }
+
+            .pp-tool-icon svg,
+            .pp-tool-icon img {
+              width: 24px;
+              height: 24px;
+            }
+
+            .pp-tool-info h3 {
+              font-size: 12.8px;
+              font-weight: 720;
+            }
+
+            .pp-tool-info p {
+              font-size: 10.8px;
+              font-weight: 650;
+              line-height: 1.28;
+            }
+          }
+
+          @media (max-width: 340px) {
+            .pp-skill-title h2 {
+              font-size: 24px;
+              font-weight: 750;
+            }
+
+            .pp-skill-main-grid {
+              gap: 10px;
+            }
+
+            .pp-skill-main-card {
+              min-height: 70px;
+              padding: 13px 8px;
+            }
+
+            .pp-skill-main-card h3 {
+              font-size: 12px;
+              font-weight: 700;
+            }
+
+            .pp-tools-grid {
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              column-gap: 10px;
+              row-gap: 18px;
+            }
+
+            .pp-tool-item {
+              gap: 10px;
+            }
+
+            .pp-tool-icon {
+              width: 42px;
+              height: 42px;
+              min-width: 42px;
+            }
+
+            .pp-tool-icon svg,
+            .pp-tool-icon img {
+              width: 22px;
+              height: 22px;
+            }
+
+            .pp-tool-info h3 {
+              font-size: 12px;
+              font-weight: 720;
+            }
+
+            .pp-tool-info p {
+              font-size: 10px;
+              font-weight: 650;
             }
           }
         `}
       </style>
 
-      <motion.div
-        className="section-title"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h2>Kemampuan</h2>
-      </motion.div>
-
-      <div className="mz-skill-grid">
-        {skills.map((skill, index) => (
+      <div className="pp-skill-wrapper">
+        <div className="pp-skill-main">
           <motion.div
-            className="mz-skill-card"
-            key={skill.name}
+            className="pp-skill-title"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
-            transition={{
-              duration: 0.5,
-              delay: index * 0.08,
-            }}
-            whileHover={{
-              y: -8,
-              scale: 1.03,
-            }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="mz-skill-icon">
-              {typeof skill.icon === "string" ? (
-                <img src={skill.icon} alt={`${skill.name} logo`} />
-              ) : (
-                skill.icon
-              )}
-            </div>
-
-            <h3>{skill.name}</h3>
+            <h2>Skills</h2>
           </motion.div>
-        ))}
+
+          <div className="pp-skill-main-grid">
+            {skillList.map((skill, index) => (
+              <motion.div
+                className="pp-skill-main-card"
+                key={skill}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.08,
+                }}
+              >
+                <h3>{skill}</h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="pp-tools-main">
+          <motion.div
+            className="pp-skill-title"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2>Tools yang Digunakan</h2>
+          </motion.div>
+
+          <div className="pp-tools-grid">
+            {tools.map((tool, index) => (
+              <motion.div
+                className="pp-tool-item"
+                key={tool.name}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.08,
+                }}
+              >
+                <div className="pp-tool-icon">
+                  {typeof tool.icon === "string" ? (
+                    <img src={tool.icon} alt={`${tool.name} logo`} />
+                  ) : (
+                    tool.icon
+                  )}
+                </div>
+
+                <div className="pp-tool-info">
+                  <h3>{tool.name}</h3>
+                  <p>{tool.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </motion.section>
   );
