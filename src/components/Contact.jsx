@@ -8,27 +8,28 @@ function Contact() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  const sendWhatsAppMessage = () => {
-    const waNumber = "6281574779615";
+ const sendEmailMessage = () => {
+   const subject = encodeURIComponent(`Pesan Baru dari ${name}`);
 
-    const text = `Halo Muhammad Zikri,
+   const body = encodeURIComponent(`Halo Muhammad Zikri,
 
-Full Name: ${name}
-Email: ${email}
-Phone Number: ${phone}
+Nama Lengkap : ${name}
+Email         : ${email}
+Nomor Telepon : ${phone}
 
-Message:
-${message}`;
+Pesan:
+${message}
+`);
 
-    const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+   const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=mz150904@gmail.com&su=${subject}&body=${body}`;
 
-    window.open(url, "_blank", "noopener,noreferrer");
+   window.open(gmailUrl, "_blank", "noopener,noreferrer");
 
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
-  };
+   setName("");
+   setEmail("");
+   setPhone("");
+   setMessage("");
+ };
 
   return (
     <motion.section
@@ -543,7 +544,7 @@ ${message}`;
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           onSubmit={(event) => {
             event.preventDefault();
-            sendWhatsAppMessage();
+            sendEmailMessage();
           }}
         >
           <input

@@ -148,7 +148,7 @@ function Skill() {
   );
 
   const skillList = [
-    "(Digital) Product Design",
+    "Digital Product Design",
     "User Experience Design",
     "User Testing",
     "User Interface Design",
@@ -169,42 +169,42 @@ function Skill() {
     },
     {
       name: "Figma",
-      description: "UI/UX Design & Prototyping",
+      description: "Desain UI/UX & Prototipe",
       icon: <FigmaIcon />,
     },
     {
       name: "Laravel",
-      description: "Web Framework",
+      description: "Framework Website",
       icon: "https://cdn.simpleicons.org/laravel/FF2D20",
     },
     {
       name: "Flutter",
-      description: "Mobile App Development",
+      description: "Pengembangan Aplikasi Mobile",
       icon: <FlutterIcon />,
     },
     {
       name: "Dart",
-      description: "Mobile Programming",
+      description: "Bahasa Pemrograman Mobile",
       icon: <DartIcon />,
     },
     {
       name: "HTML",
-      description: "Website Structure",
+      description: "Struktur Website",
       icon: <HtmlIcon />,
     },
     {
       name: "CSS",
-      description: "Website Styling",
+      description: "Tampilan Website",
       icon: <CssIcon />,
     },
     {
       name: "MySQL",
-      description: "Database Management",
+      description: "Manajemen Basis Data",
       icon: "https://cdn.simpleicons.org/mysql/4479A1",
     },
     {
       name: "phpMyAdmin",
-      description: "Database Dashboard",
+      description: "Dashboard Basis Data",
       icon: "https://cdn.simpleicons.org/phpmyadmin/6C78AF",
     },
   ];
@@ -520,133 +520,88 @@ function Skill() {
           }
 
           @media (max-width: 560px) {
-            .pp-skill {
-              padding-top: 46px;
-              padding-bottom: 46px;
-            }
+  .pp-skill {
+    padding-top: 46px;
+    padding-bottom: 46px;
+  }
 
-            .pp-skill-title {
-              margin-bottom: 24px;
-            }
+  .pp-skill-title {
+    margin-bottom: 24px;
+  }
 
-            .pp-skill-title h2 {
-              font-size: 26px;
-              font-weight: 750;
-            }
+  .pp-skill-title h2 {
+    font-size: 26px;
+  }
 
-            .pp-skill-main {
-              margin-bottom: 42px;
-            }
+  .pp-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 12px;
+    row-gap: 18px;
+  }
 
-            .pp-skill-main-grid {
-              grid-template-columns: repeat(2, minmax(0, 1fr));
-              gap: 12px;
-            }
+  .pp-tool-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
 
-            .pp-skill-main-card {
-              min-height: 78px;
-              padding: 15px 12px;
-            }
+  .pp-tool-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 10px;
+  }
 
-            .pp-skill-main-card h3 {
-              font-size: 13px;
-              font-weight: 700;
-            }
+  .pp-tool-icon svg,
+  .pp-tool-icon img {
+    width: 22px;
+    height: 22px;
+  }
 
-            .pp-tools-grid {
-              grid-template-columns: repeat(2, minmax(0, 1fr));
-              column-gap: 14px;
-              row-gap: 22px;
-            }
+  .pp-tool-info h3 {
+    font-size: 11px;
+    line-height: 1.2;
+  }
 
-            .pp-tool-item {
-              flex-direction: column;
-              align-items: flex-start;
-              justify-content: flex-start;
-              gap: 12px;
-            }
-
-            .pp-tool-icon {
-              width: 48px;
-              height: 48px;
-              min-width: 48px;
-            }
-
-            .pp-tool-icon svg,
-            .pp-tool-icon img {
-              width: 26px;
-              height: 26px;
-            }
-
-            .pp-tool-info h3 {
-              font-size: 13.5px;
-              font-weight: 720;
-            }
-
-            .pp-tool-info p {
-              font-size: 11.5px;
-              font-weight: 650;
-              line-height: 1.3;
-            }
-          }
+  .pp-tool-info p {
+    font-size: 9px;
+    line-height: 1.2;
+  }
+}
 
           @media (max-width: 430px) {
-            .pp-skill {
-              padding-top: 42px;
-              padding-bottom: 42px;
-            }
+  .pp-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 16px;
+  }
 
-            .pp-skill-main {
-              margin-bottom: 38px;
-            }
+  .pp-tool-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
 
-            .pp-skill-main-grid {
-              grid-template-columns: repeat(2, minmax(0, 1fr));
-              gap: 11px;
-            }
+  .pp-tool-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
 
-            .pp-skill-main-card {
-              min-height: 74px;
-              padding: 14px 10px;
-              border-radius: 13px;
-            }
+  .pp-tool-icon svg,
+  .pp-tool-icon img {
+    width: 20px;
+    height: 20px;
+  }
 
-            .pp-skill-main-card h3 {
-              font-size: 12.5px;
-              font-weight: 700;
-              line-height: 1.3;
-            }
+  .pp-tool-info h3 {
+    font-size: 10px;
+  }
 
-            .pp-tools-grid {
-              grid-template-columns: repeat(2, minmax(0, 1fr));
-              column-gap: 12px;
-              row-gap: 20px;
-            }
-
-            .pp-tool-icon {
-              width: 44px;
-              height: 44px;
-              min-width: 44px;
-              border-radius: 12px;
-            }
-
-            .pp-tool-icon svg,
-            .pp-tool-icon img {
-              width: 24px;
-              height: 24px;
-            }
-
-            .pp-tool-info h3 {
-              font-size: 12.8px;
-              font-weight: 720;
-            }
-
-            .pp-tool-info p {
-              font-size: 10.8px;
-              font-weight: 650;
-              line-height: 1.28;
-            }
-          }
+  .pp-tool-info p {
+    font-size: 8px;
+  }
+}
 
           @media (max-width: 340px) {
             .pp-skill-title h2 {

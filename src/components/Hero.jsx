@@ -687,7 +687,7 @@ function Hero() {
             className="pp-hero-btn pp-hero-btn-primary"
             whileTap={{ scale: 0.96 }}
           >
-            Kunjungi
+            Lihat Proyek
           </motion.a>
 
           <motion.a
