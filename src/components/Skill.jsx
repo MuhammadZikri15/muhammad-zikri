@@ -522,47 +522,7 @@ function Skill() {
         @media (max-width: 560px) {
   .pp-tools-grid {
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 16px;
-    row-gap: 24px;
-  }
-
-  .pp-tool-item {
-    flex-direction: row;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .pp-tool-icon {
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
-    border-radius: 14px;
-    box-shadow: 4px 4px 0 #000000;
-  }
-
-  .pp-tool-icon svg,
-  .pp-tool-icon img {
-    width: 34px;
-    height: 34px;
-  }
-
-  .pp-tool-info h3 {
-    font-size: 15px;
-    line-height: 1.25;
-    font-weight: 700;
-  }
-
-  .pp-tool-info p {
-    font-size: 12px;
-    line-height: 1.3;
-    font-weight: 600;
-  }
-}
-
-         @media (max-width: 430px) {
-  .pp-tools-grid {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 14px;
+    column-gap: 15px;
     row-gap: 22px;
   }
 
@@ -576,23 +536,63 @@ function Skill() {
     width: 56px;
     height: 56px;
     min-width: 56px;
+    border-radius: 13px;
+    box-shadow: 3px 3px 0 #000000;
   }
 
   .pp-tool-icon svg,
   .pp-tool-icon img {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 
   .pp-tool-info h3 {
-    font-size: 14px;
-    line-height: 1.2;
+    font-size: 13.5px;
+    line-height: 1.25;
     font-weight: 700;
   }
 
   .pp-tool-info p {
     font-size: 11px;
     line-height: 1.25;
+    font-weight: 600;
+  }
+}
+
+         @media (max-width: 430px) {
+  .pp-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 12px;
+    row-gap: 20px;
+  }
+
+  .pp-tool-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pp-tool-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+  }
+
+  .pp-tool-icon svg,
+  .pp-tool-icon img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .pp-tool-info h3 {
+    font-size: 12.5px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .pp-tool-info p {
+    font-size: 10px;
+    line-height: 1.2;
   }
 }
 
